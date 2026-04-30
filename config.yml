@@ -3,7 +3,7 @@ backend:
   repo: digital-ambernord-ch/decap-test-projekts
   branch: main
   auth_type: pkce
-  app_id: TAVS_CLIENT_ID
+  app_id: Ov23li0ZBgX8wKNqv2al
 
 media_folder: "images"
 public_folder: "/images"
