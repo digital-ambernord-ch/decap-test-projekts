@@ -10,24 +10,24 @@
     <script>
       CMS.init({
         config: {
-          load_config_file: false,
+          load_config_file: false
           backend: {
-            name: 'github',
-            repo: 'digital-ambernord-ch/decap-test-projekts',
-            branch: 'main',
-            auth_type: 'pkce',
-            app_id: 'Ov23li0ZBgX8wKNqv2al'
-          },
-          media_folder: 'images',
-          public_folder: '/images',
+            name: 'github'
+            repo: 'digital-ambernord-ch/decap-test-projekts'
+            branch: 'main'
+            auth_type: 'pkce'
+            app_id: Ov23li0ZBgX8wKNqv2al
+          }
+          media_folder: 'images'
+          public_folder: '/images'
           collections: [
             {
-              name: 'pages',
-              label: 'Pages',
-              folder: 'content',
-              create: true,
+              name: 'pages'
+              label: 'Pages'
+              folder: 'content'
+              create: true
               fields: [
-                { label: 'Title', name: 'title', widget: 'string' },
+                { label: 'Title', name: 'title', widget: 'string' }
                 { label: 'Body', name: 'body', widget: 'markdown' }
               ]
             }
