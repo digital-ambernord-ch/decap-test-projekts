@@ -3,38 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <script>window.CMS_MANUAL_INIT = true;</script>
-    <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
-    <script>
-      
-        config: {
-          load_config_file: false,
-          backend: {
-            name: 'github',
-            repo: 'digital-ambernord-ch/decap-test-projekts',
-            branch: 'main',
-            auth_type: 'pkce',
-            app_id: 'Ov23li0ZBgX8wKNqv2al'
-          },
-          media_folder: 'images',
-          public_folder: '/images',
-          collections: [
-            {
-              name: 'pages',
-              label: 'Pages',
-              folder: 'content',
-              create: true,
-              fields: [
-                { label: 'Title', name: 'title', widget: 'string' },
-                { label: 'Body', name: 'body', widget: 'markdown' }
-              ]
-            }
-          ]
-        }
-      });
-    </script>
+    <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
   </body>
 </html>
