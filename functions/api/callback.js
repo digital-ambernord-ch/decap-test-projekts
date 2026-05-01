@@ -17,9 +17,19 @@ export async function onRequest(context) {
   });
 
   const data = await response.json();
+  const token = data.access_token;
 
-  // DEBUG - parāda ko GitHub atdod
-  return new Response(JSON.stringify(data), {
-    headers: { 'Content-Type': 'application/json' }
+  const html = `<!DOCTYPE html>
+<html><body><script>
+(function() {
+  var token = ${JSON.stringify(token)};
+  var msg = "authorization:github:success:" + JSON.stringify({token: token, provider: "github"});
+  window.opener.postMessage(msg, "https://ambernord-admin.pages.dev");
+  window.close();
+})();
+<\/script></body></html>`;
+
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' }
   });
 }
