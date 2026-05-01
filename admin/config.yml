@@ -1,0 +1,6 @@
+backend:
+  name: github
+  repo: digital-ambernord-ch/decap-test-projekts
+  branch: main
+  auth_type: pkce
+  app_id: Ov23li0ZBgX8wKNqv2al
