@@ -1,4 +1,4 @@
-      backend:
+backend:
   name: github
   repo: digital-ambernord-ch/decap-test-projekts
   branch: main
@@ -13,5 +13,9 @@ collections:
     folder: content
     create: true
     fields:
-      - {label: Title, name: title, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - label: Title
+        name: title
+        widget: string
+      - label: Body
+        name: body
+        widget: markdown
