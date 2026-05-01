@@ -17,19 +17,22 @@ export async function onRequest(context) {
   });
 
   const data = await response.json();
-  const token = data.access_token;
+  const content = JSON.stringify({ token: data.access_token, provider: 'github' });
 
-  const html = `<!DOCTYPE html>
-<html><body><script>
-(function() {
-  var token = ${JSON.stringify(token)};
-  var msg = "authorization:github:success:" + JSON.stringify({token: token, provider: "github"});
-  window.opener.postMessage(msg, "https://ambernord-admin.pages.dev");
-  window.close();
-})();
-<\/script></body></html>`;
-
-  return new Response(html, {
-    headers: { 'Content-Type': 'text/html' }
-  });
+  return new Response(
+    `<!DOCTYPE html><html><body><script>
+    (function() {
+      function receiveMessage(e) {
+        window.opener.postMessage(
+          'authorization:github:success:' + ${JSON.stringify(content)},
+          e.origin
+        );
+        window.removeEventListener("message", receiveMessage, false);
+      }
+      window.addEventListener("message", receiveMessage, false);
+      window.opener.postMessage("authorizing:github", "*");
+    })();
+    <\/script></body></html>`,
+    { headers: { 'Content-Type': 'text/html' } }
+  );
 }
