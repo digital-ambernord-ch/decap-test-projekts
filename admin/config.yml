@@ -2,7 +2,8 @@ backend:
   name: github
   repo: digital-ambernord-ch/decap-test-projekts
   branch: main
-  base_url: https://github-oauth-proxy.eriksmatisonsvd.workers.dev
+  base_url: https://ambernord-admin.pages.dev
+  auth_endpoint: api/auth
 
 media_folder: images
 public_folder: /images
@@ -13,9 +14,5 @@ collections:
     folder: content
     create: true
     fields:
-      - label: Title
-        name: title
-        widget: string
-      - label: Body
-        name: body
-        widget: markdown
+      - {label: Title, name: title, widget: string}
+      - {label: Body, name: body, widget: markdown}
